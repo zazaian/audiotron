@@ -1,6 +1,7 @@
-=== 1.0.0 / 2009-12-21
+=== 0.1.5 2009-12-21
+  => 1 major enhancement
+    * Integrate id3lib-ruby for managing id3 tags for audio files 
 
-* 1 major enhancement
-
-  * Birthday!
-
+=== 0.1.4 = 2009-12-21
+  => 1 major enhancement
+    * Add Choice option parsing for id3 tags
