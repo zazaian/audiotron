@@ -43,7 +43,7 @@ module AudioTron
   module Version
     MAJOR = 0
     MINOR = 1
-    MICRO = 6
+    MICRO = 7
 
     def self.print
       [MAJOR, MINOR, MICRO].join(".")
@@ -100,11 +100,14 @@ module AudioTron
     def apply_id3_tags
       @file_objects.each do |fo|
         tag = ID3Lib::Tag.new(fo.new)
-        ID3_OPTIONS.each {|o| tag.send("#{o}=", Choice.choices[o]) if Choice.choices[o] }
+        ID3_OPTIONS.each do |o|
+          next unless Choice.choices[o]
+          tag.send("#{o}=", Choice.choices[o]) 
+          puts "Set #{o} tag to \"#{Choice.choices[o]}\" for #{fo.new}"
+        end
         tag.update!
       end
     end
-
   end
 
   # TODO: Use this class to tag batches
