@@ -5,14 +5,11 @@
 #:: Updated : 2009-12-22
 
 
-# Require a list of ruby gems
-require 'rubygems'
-# Require complex file utilities
-require 'fileutils'
-# Require the Choice option parser
-require 'choice'
-# Require the id3lib-ruby ID3 library
-require 'id3lib'
+require 'rubygems'  # Require a list of ruby gems
+require 'fileutils' # Require complex file utilities
+require 'choice'    # Require the Choice option parser
+require 'id3lib'    # Require the id3lib-ruby ID3 library
+
 
 # Define the option parsing (via the Choice class)
 Choice.options do
@@ -46,7 +43,7 @@ module AudioTron
   module Version
     MAJOR = 0
     MINOR = 1
-    MICRO = 5
+    MICRO = 6
 
     def self.print
       [MAJOR, MINOR, MICRO].join(".")

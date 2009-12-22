@@ -1,4 +1,8 @@
-=== 0.1.5 2009-12-21
+=== 0.1.6 2009-12-22
+  => 1 minor enhancement
+    * Organize requirement comments on same line as requirement
+
+=== 0.1.5 2009-12-22
   => 1 major enhancement
     * Integrate id3lib-ruby for managing id3 tags for audio files 
 
