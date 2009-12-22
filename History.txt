@@ -1,3 +1,7 @@
+=== 0.1.8 == 2009-12-22
+  * 1 Minor enhancement
+    * Add --verbose option to control message output
+
 === 0.1.7 == 2009-12-22
   * 1 Minor enhancement
     * Puts notice when changing id3 info

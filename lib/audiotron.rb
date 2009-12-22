@@ -13,15 +13,23 @@ require 'id3lib'    # Require the id3lib-ruby ID3 library
 
 # Define the option parsing (via the Choice class)
 Choice.options do
+  separator ''
   option :range do
     short "-r"
     long "--range=RANGE"
     desc "Select scope of the audio files for operation."
     default "*.mp3"
   end
+  
+  option :verbose do
+    short "-v"
+    long "--verbose"
+    desc "Choose whether to see application messages."
+    default false
+  end
 
   separator ''
-  separator ':: id3v2 options ::'
+  separator '  === id3 Options ==='
 
   option :artist do
     short "-a"
@@ -36,6 +44,7 @@ Choice.options do
     desc "Set the id3v2 --album tag for audio files in RANGE"
     default nil
   end
+  separator ''
 end
 
 
@@ -43,7 +52,7 @@ module AudioTron
   module Version
     MAJOR = 0
     MINOR = 1
-    MICRO = 7
+    MICRO = 8
 
     def self.print
       [MAJOR, MINOR, MICRO].join(".")
@@ -103,7 +112,7 @@ module AudioTron
         ID3_OPTIONS.each do |o|
           next unless Choice.choices[o]
           tag.send("#{o}=", Choice.choices[o]) 
-          puts "Set #{o} tag to \"#{Choice.choices[o]}\" for #{fo.new}"
+          puts "Set #{o} tag to \"#{Choice.choices[o]}\" for #{fo.new}" if Choice.choices[:verbose]
         end
         tag.update!
       end
