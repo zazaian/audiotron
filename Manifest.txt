@@ -1,0 +1,7 @@
+History.txt
+Manifest.txt
+README.txt
+Rakefile
+bin/audiotron
+lib/audiotron.rb
+test/test_audiotron.rb
